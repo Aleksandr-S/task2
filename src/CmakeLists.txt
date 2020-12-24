@@ -1,0 +1,13 @@
+cmake_minimum_required(VERSION 3.1.0)
+set(CMAKE_INCLUDE_CURRENT_DIR ON)
+project (taskArgus)
+set(CMAKE_CXX_STANDARD 14)
+
+find_package(OpenCV REQUIRED)
+include_directories( ${OpenCV_INCLUDE_DIRS} )
+				
+file(GLOB HEADERS ${CMAKE_CURRENT_SOURCE_DIR}/*.h)
+file(GLOB SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/*.cpp)
+
+add_executable(taskArgus ${HEADERS} ${SOURCES})
+target_link_libraries(taskArgus ${OpenCV_LIBS})
